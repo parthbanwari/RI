@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from './hooks/useAuth';
-import { useTheme } from './hooks/useTheme';
+import { useTheme } from './hooks/UseTheme';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
