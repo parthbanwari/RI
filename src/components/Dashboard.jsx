@@ -7,7 +7,7 @@ import Modal from './Modal';
 import EventForm from './EventForm';
 import ReminderForm from './ReminderForm';
 import { useEvents } from '../hooks/useEvents';
-import { useReminders } from '../hooks/useReminders';
+import useReminders from '../hooks/UseReminders'
 import { requestNotificationPermission } from '../utils/notifications';
 
 const Dashboard = ({ user }) => {
