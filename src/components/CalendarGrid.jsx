@@ -115,24 +115,28 @@ const CalendarGrid = ({ currentDate, onDateChange, onDateClick, events, reminder
         days.push(
           <div
             key={day}
-            className={`h-20 sm:h-28 md:h-32 lg:h-36 border-r border-b border-slate-200/40 dark:border-slate-700/40 p-1.5 sm:p-2 md:p-3 cursor-pointer transition-all duration-200 hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 dark:hover:from-blue-900/10 dark:hover:to-indigo-900/10 hover:shadow-md hover:scale-[1.02] hover:z-10 relative group ${
-              isCurrentDay
-                ? 'bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 ring-2 ring-blue-300/50 dark:ring-blue-600/30 shadow-lg'
-                : 'bg-white dark:bg-slate-900 hover:shadow-lg'
-            } ${isPast ? 'opacity-70' : ''}`}
+            className={`h-20 sm:h-28 md:h-32 lg:h-36 
+                        border-r border-b border-slate-200/40 dark:border-slate-700/40 
+                        p-1.5 sm:p-2 md:p-3 cursor-pointer 
+                        transition-all duration-200 
+                        hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 
+                        dark:hover:from-blue-900/10 dark:hover:to-indigo-900/10 
+                        hover:shadow-md hover:scale-[1.02] hover:z-10 
+                        relative group flex flex-col`}   // ✅ added flex flex-col
             onClick={() => onDateClick(date)}
           >
             <div
-              className={`text-xs sm:text-sm font-bold mb-1 sm:mb-2 transition-all duration-200 ${
-                isCurrentDay
-                  ? 'text-blue-700 dark:text-blue-300'
-                  : isPast
-                  ? 'text-slate-400 dark:text-slate-500'
-                  : 'text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white'
-              }`}
+              className={`text-xs sm:text-sm font-bold mb-1 sm:mb-2 self-end  // ✅ added self-end
+                          ${isCurrentDay
+                            ? 'text-blue-700 dark:text-blue-300'
+                            : isPast
+                            ? 'text-slate-400 dark:text-slate-500'
+                            : 'text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white'
+                          }`}
             >
               {day}
             </div>
+
 
             <div className="flex flex-col gap-0.5 sm:gap-1 overflow-hidden h-full">
               {/* Show first few events/reminders */}
@@ -202,24 +206,28 @@ const CalendarGrid = ({ currentDate, onDateChange, onDateClick, events, reminder
         days.push(
           <div
             key={i}
-            className={`h-32 sm:h-40 md:h-48 lg:h-56 border-r border-b border-slate-200/40 dark:border-slate-700/40 p-2 sm:p-3 md:p-4 cursor-pointer transition-all duration-200 hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 dark:hover:from-blue-900/10 dark:hover:to-indigo-900/10 hover:shadow-md hover:scale-[1.02] hover:z-10 relative group ${
-              isCurrentDay
-                ? 'bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 ring-2 ring-blue-300/50 dark:ring-blue-600/30 shadow-lg'
-                : 'bg-white dark:bg-slate-900'
-            } ${isPast ? 'opacity-70' : ''}`}
+            className={`h-32 sm:h-40 md:h-48 lg:h-56 
+                        border-r border-b border-slate-200/40 dark:border-slate-700/40 
+                        p-2 sm:p-3 md:p-4 cursor-pointer 
+                        transition-all duration-200 
+                        hover:bg-gradient-to-br hover:from-blue-50 hover:to-indigo-50 
+                        dark:hover:from-blue-900/10 dark:hover:to-indigo-900/10 
+                        hover:shadow-md hover:scale-[1.02] hover:z-10 
+                        relative group flex flex-col`}   // ✅ added flex flex-col
             onClick={() => onDateClick(date)}
           >
             <div
-              className={`text-sm sm:text-base font-bold mb-2 sm:mb-3 transition-colors duration-200 ${
-                isCurrentDay
-                  ? 'text-blue-700 dark:text-blue-300'
-                  : isPast
-                  ? 'text-slate-400 dark:text-slate-500'
-                  : 'text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white'
-              }`}
+              className={`text-sm sm:text-base font-bold mb-2 sm:mb-3 self-end  // ✅ added self-end
+                          ${isCurrentDay
+                            ? 'text-blue-700 dark:text-blue-300'
+                            : isPast
+                            ? 'text-slate-400 dark:text-slate-500'
+                            : 'text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white'
+                          }`}
             >
               {date.getDate()}
             </div>
+
 
 
             <div className="space-y-1.5 overflow-hidden h-full">

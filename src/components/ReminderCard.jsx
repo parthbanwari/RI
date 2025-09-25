@@ -26,10 +26,11 @@ const ReminderCard = ({ reminder, onEdit, onDelete }) => {
   };
 
   const getStatus = () => {
-    if (reminder.notified) return { text: 'Completed', color: 'text-black-400' };
-    if (isOverdue()) return { text: 'Overdue', color: 'text-red-400' };
-    return { text: 'Scheduled', color: 'text-black-400' };
+    if (reminder.notified) return { text: 'Completed', color: 'text-gray-500 dark:text-gray-300' };
+    if (isOverdue()) return { text: 'Overdue', color: 'text-red-500 dark:text-red-400' };
+    return { text: 'Scheduled', color: 'text-black dark:text-white' }; // 🔥 black in light mode, white in dark mode
   };
+
 
   const status = getStatus();
 
@@ -88,7 +89,10 @@ const ReminderCard = ({ reminder, onEdit, onDelete }) => {
             </div>
             <div>
               <h3 className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-slate-300 uppercase tracking-wide mb-1 sm:mb-2">Status</h3>
-              <p className={`text-lg sm:text-xl font-bold ${status.color}`}>{status.text}</p>
+              <p className={`text-lg sm:text-xl font-bold ${status.color}`}>
+                {status.text}
+              </p>
+
             </div>
           </div>
         </div>

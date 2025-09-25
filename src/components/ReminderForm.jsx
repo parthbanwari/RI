@@ -172,11 +172,11 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3 pt-4 sm:pt-4">
+      <div className="flex flex-col sm:flex-row justify-end space-y-4 sm:space-y-0 sm:space-x-6 pt-6 sm:pt-8">
         <button
           type="button"
           onClick={onCancel}
-          className="w-full sm:w-auto px-4 py-2 sm:py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors cursor-pointer order-2 sm:order-1"
+          className="w-full sm:w-auto px-4 py-2 sm:py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors cursor-pointer"
         >
           <X className="h-4 w-4 inline mr-2" />
           Cancel
@@ -184,7 +184,7 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full sm:w-auto px-4 py-2 sm:py-2.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer order-1 sm:order-2"
+          className="w-full sm:w-auto px-4 py-2 sm:py-2.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
         >
           {loading ? (
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline mr-2" />
@@ -194,6 +194,7 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
           {reminder ? 'Update Reminder' : 'Create Reminder'}
         </button>
       </div>
+
     </form>
   );
 };
