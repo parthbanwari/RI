@@ -80,19 +80,19 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 px-1 sm:px-0">
       <div>
         <label htmlFor="title" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Reminder Title
         </label>
         <div className="relative">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Bell className="h-5 w-5 text-gray-400" />
+            <Bell className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
           </div>
           <input
             type="text"
             id="title"
-            className={`block w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+            className={`block w-full pl-9 sm:pl-10 pr-3 py-2 sm:py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors text-sm sm:text-base ${
               errors.title ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
             }`}
             placeholder="Enter reminder title"
@@ -101,23 +101,23 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
           />
         </div>
         {errors.title && (
-          <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.title}</p>
+          <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{errors.title}</p>
         )}
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div>
           <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Date
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Calendar className="h-5 w-5 text-gray-400" />
+              <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
             </div>
             <input
               type="date"
               id="date"
-              className={`block w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+              className={`block w-full pl-9 sm:pl-10 pr-3 py-2 sm:py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors text-sm sm:text-base cursor-pointer ${
                 errors.date ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
               }`}
               value={formData.date}
@@ -125,7 +125,7 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
             />
           </div>
           {errors.date && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.date}</p>
+            <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{errors.date}</p>
           )}
         </div>
 
@@ -135,12 +135,12 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Clock className="h-5 w-5 text-gray-400" />
+              <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
             </div>
             <input
               type="time"
               id="time"
-              className={`block w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors ${
+              className={`block w-full pl-9 sm:pl-10 pr-3 py-2 sm:py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors text-sm sm:text-base cursor-pointer ${
                 errors.time ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
               }`}
               value={formData.time}
@@ -148,7 +148,7 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
             />
           </div>
           {errors.time && (
-            <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.time}</p>
+            <p className="mt-1 text-xs sm:text-sm text-red-600 dark:text-red-400">{errors.time}</p>
           )}
         </div>
       </div>
@@ -158,13 +158,13 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
           Description (Optional)
         </label>
         <div className="relative">
-          <div className="absolute top-3 left-3 pointer-events-none">
-            <FileText className="h-5 w-5 text-gray-400" />
+          <div className="absolute top-2.5 sm:top-3 left-3 pointer-events-none">
+            <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
           </div>
           <textarea
             id="description"
             rows={3}
-            className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors resize-none"
+            className="block w-full pl-9 sm:pl-10 pr-3 py-2 sm:py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors resize-none text-sm sm:text-base"
             placeholder="Add reminder description..."
             value={formData.description}
             onChange={(e) => handleChange('description', e.target.value)}
@@ -172,11 +172,11 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
         </div>
       </div>
 
-      <div className="flex justify-end space-x-3 pt-4">
+      <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3 pt-4 sm:pt-4">
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors"
+          className="w-full sm:w-auto px-4 py-2 sm:py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors cursor-pointer order-2 sm:order-1"
         >
           <X className="h-4 w-4 inline mr-2" />
           Cancel
@@ -184,7 +184,7 @@ const ReminderForm = ({ reminder, onSave, onCancel }) => {
         <button
           type="submit"
           disabled={loading}
-          className="px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="w-full sm:w-auto px-4 py-2 sm:py-2.5 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer order-1 sm:order-2"
         >
           {loading ? (
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline mr-2" />
