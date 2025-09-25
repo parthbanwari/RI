@@ -1,9 +1,7 @@
 import React from 'react';
-import { LogOut, Sun, Moon, User } from 'lucide-react';
-import { useTheme } from '../hooks/UseTheme';
+import { LogOut, User } from 'lucide-react';
 
 const Navbar = ({ user, onLogout }) => {
-   const { theme, toggleTheme } = useTheme();
   return (
     <nav className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-lg border-b border-gray-200/30 dark:border-gray-700/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,12 +13,6 @@ const Navbar = ({ user, onLogout }) => {
           </div>
 
           <div className="flex items-center space-x-3">
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
-            >
-              {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-            </button>
 
             <div className="flex items-center space-x-2 px-3 py-2 rounded-xl bg-gray-50/80 dark:bg-gray-800/50 text-sm text-gray-700 dark:text-gray-300 border border-gray-200/50 dark:border-gray-700/50">
               <User className="h-4 w-4 text-blue-500 dark:text-blue-400" />

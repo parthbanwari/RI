@@ -1,13 +1,11 @@
 import React from 'react';
 import { useAuth } from './hooks/useAuth';
-import { useTheme } from './hooks/UseTheme';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 
 function App() {
   const { user, loading, login, logout, isAuthenticated } = useAuth();
-  const { theme, toggleTheme } = useTheme();
 
   if (loading) {
     return (
@@ -29,8 +27,6 @@ function App() {
       <Navbar
         user={user}
         onLogout={logout}
-        theme={theme}
-        onToggleTheme={toggleTheme}
       />
       <Dashboard user={user} />
     </div>

@@ -27,6 +27,7 @@ export const sendEmailNotification = async (userEmail, reminderMessage, reminder
     email: userEmail,       // optional, for reply-to
     message: reminderMessage,
     time: reminderTime,
+    from_email: "309paradise@gmail.com",
   };
 
   try {

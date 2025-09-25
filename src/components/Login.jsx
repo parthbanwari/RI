@@ -61,7 +61,7 @@ const Login = ({ onLogin }) => {
           </div>
           
           <h1 className="text-3xl font-bold text-white mb-2">
-            Welcome Back
+            Welcome
           </h1>
           <p className="text-slate-400 text-lg">
             Sign in to your calendar

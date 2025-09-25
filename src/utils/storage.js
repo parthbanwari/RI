@@ -31,11 +31,20 @@ export const getReminders = (email) => {
   return reminders ? JSON.parse(reminders) : [];
 };
 
-// Theme utilities
 export const saveTheme = (theme) => {
-  localStorage.setItem('theme', theme);
+  try {
+    localStorage.setItem('theme', theme);
+  } catch (error) {
+    console.error("Could not save theme to localStorage", error);
+  }
 };
 
 export const getTheme = () => {
-  return localStorage.getItem('theme') || 'light';
+  try {
+    const theme = localStorage.getItem('theme');
+    return theme;
+  } catch (error) {
+    console.error("Could not get theme from localStorage", error);
+    return null;
+  }
 };

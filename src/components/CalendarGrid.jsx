@@ -51,15 +51,28 @@ const CalendarGrid = ({ currentDate, onDateChange, onDateClick, events, reminder
   }
 }, [reminders]);
 
-
-  const previousMonth = () => {
-    const newDate = new Date(year, month - 1, 1);
-    onDateChange(newDate);
+  const previous = () => {
+    if (viewMode === "monthly") {
+      const newDate = new Date(year, month - 1, 1);
+      onDateChange(newDate);
+    } else {
+      // weekly -> go back 7 days
+      const newDate = new Date(currentDate);
+      newDate.setDate(currentDate.getDate() - 7);
+      onDateChange(newDate);
+    }
   };
 
-  const nextMonth = () => {
-    const newDate = new Date(year, month + 1, 1);
-    onDateChange(newDate);
+  const next = () => {
+    if (viewMode === "monthly") {
+      const newDate = new Date(year, month + 1, 1);
+      onDateChange(newDate);
+    } else {
+      // weekly -> go forward 7 days
+      const newDate = new Date(currentDate);
+      newDate.setDate(currentDate.getDate() + 7);
+      onDateChange(newDate);
+    }
   };
 
   const getEventsForDate = (date) => {
@@ -238,7 +251,7 @@ const CalendarGrid = ({ currentDate, onDateChange, onDateClick, events, reminder
       {/* Calendar Header */}
       <div className="flex items-center justify-between p-6 bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-800/80 border-b border-slate-200/60 dark:border-slate-700/50">
         <button
-          onClick={previousMonth}
+          onClick={previous}
           className="p-3 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-700/50 transition-all duration-200 hover:shadow-md hover:scale-105 active:scale-95"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -247,7 +260,18 @@ const CalendarGrid = ({ currentDate, onDateChange, onDateClick, events, reminder
 
         <div className="flex items-center justify-center space-x-4">
           <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 dark:from-slate-100 dark:to-slate-300">
-            {getMonthName(month)} {year}
+            {viewMode === "monthly"
+              ? `${getMonthName(month)} ${year}`
+              : (() => {
+                  const dayOfWeek = currentDate.getDay(); // 0=Sunday
+                  const sunday = new Date(currentDate);
+                  sunday.setDate(currentDate.getDate() - dayOfWeek);
+
+                  const saturday = new Date(sunday);
+                  saturday.setDate(sunday.getDate() + 6);
+
+                  return `${sunday.getDate()} ${getMonthName(sunday.getMonth())} - ${saturday.getDate()} ${getMonthName(saturday.getMonth())} ${saturday.getFullYear()}`;
+                })()}
           </h2>
 
           <div className="flex items-center space-x-2">
@@ -273,7 +297,7 @@ const CalendarGrid = ({ currentDate, onDateChange, onDateClick, events, reminder
         </div>
         
         <button
-          onClick={nextMonth}
+          onClick={next}
           className="p-3 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/80 dark:hover:bg-slate-700/50 transition-all duration-200 hover:shadow-md hover:scale-105 active:scale-95"
         >
           <ChevronRight className="h-5 w-5" />
